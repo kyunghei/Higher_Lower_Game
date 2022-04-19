@@ -38,10 +38,10 @@ while keep_playing == True:
     print(f"Against B: {choice_b['name']}, a {choice_b['description']}, from {choice_b['country']}.")
     win_counter = win_or_lose(user_choice())
 
-    choice_a = data[data.index(choice_b)]
-    new_index = random.randint(0,49)
-    while random.randint(0,50) == data.index(choice_a):
-        new_index = random.randint(0,49)
-    choice_b = data[new_index]
+    choice_a = choice_b
+    choice_b = random.sample(data, 1)[0]
+    if choice_b == choice_a:
+        choice_b = random.sample(data, 1)[0]
     print(f"Your current score is {win_counter}.")
+
 
